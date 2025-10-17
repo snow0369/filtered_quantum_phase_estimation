@@ -20,7 +20,7 @@ filtered_quantum_phase_estimation/
 
 ## Requirements
 
-- Python 3.x  
+- Python 3.8  
 - [OFEX (OpenFermion EXpansion)](https://github.com/snow0369/ofex) — **Note:** this package is *not* available on PyPI and must be installed directly from GitHub (see below).  
 - Typical scientific Python stack (`numpy`, `scipy`, `matplotlib`, etc.), listed in `requirements.txt`.  
 
