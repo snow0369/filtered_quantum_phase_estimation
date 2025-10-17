@@ -1,0 +1,19 @@
+# Python dependencies for Filtered Quantum Phase Estimation
+# Install these via: pip install -r requirements.txt
+
+# Core scientific stack
+numpy>=1.20
+scipy>=1.7
+matplotlib>=3.4
+
+# Optional: for data management or reproducibility
+pandas>=1.3
+tqdm>=4.60
+
+# OFEX library (not on PyPI; must be installed manually from GitHub)
+# See: https://github.com/snow0369/ofex
+# Example installation:
+#   git clone https://github.com/snow0369/ofex.git
+#   cd ofex
+#   pip install -r requirements.txt
+#   pip install -e .

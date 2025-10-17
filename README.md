@@ -1,6 +1,6 @@
 # Filtered Quantum Phase Estimation — Code & Data
 
-Raw data, reproduction scripts, and figures for the manuscript (arXiv:2510.04294).
+Raw data, reproduction scripts, and figures for the manuscript (arXiv:2510.04294).  
 Main code and data live in `filter_state/`.
 
 ## Repository layout
@@ -13,16 +13,16 @@ filtered_quantum_phase_estimation/
 │  ├─ data_produced/         # Pre-generated results (use to skip long runs)
 │  └─ figures/               # Resulting figures saved here by plot scripts
 ├─ chemistry_data/           # Molecule/problem inputs used by experiments
+├─ requirements.txt          # List of Python dependencies
 ├─ LICENSE                   # MIT
 └─ README.md
 ```
 
 ## Requirements
 
-- Python 3.8
-- [OFEX (OpenFermion EXpansion)](https://github.com/snow0369/ofex) installed and importable in your Python environment.
-- Typical scientific Python stack (e.g., `numpy`, `scipy`, `matplotlib`).
-  If a `requirements.txt` appears later, prefer that.
+- Python 3.x  
+- [OFEX (OpenFermion EXpansion)](https://github.com/snow0369/ofex) — **Note:** this package is *not* available on PyPI and must be installed directly from GitHub (see below).  
+- Typical scientific Python stack (`numpy`, `scipy`, `matplotlib`, etc.), listed in `requirements.txt`.  
 
 ### Quick OFEX install (from source)
 ```bash
@@ -32,6 +32,12 @@ pip install -r requirements.txt
 pip install -e .
 ```
 (If you use `psi4`, follow the `ofex` README instructions and set `PSI4PATH` accordingly.)
+
+### Install dependencies for this repository
+```bash
+# from the top-level directory
+pip install -r requirements.txt
+```
 
 ## Quick start
 
@@ -47,11 +53,22 @@ python -m venv .venv
 source .venv/bin/activate   # Windows: .venv\Scripts\activate
 ```
 
-3. **Ensure `ofex` is importable** (see above).
-
-4. **Run experiments** (this will populate `filter_state/data/`)
+3. **Install dependencies**
 ```bash
-cd filter_state
+pip install -r requirements.txt
+```
+
+4. **Install OFEX** (must be done separately)
+```bash
+git clone https://github.com/snow0369/ofex.git
+cd ofex
+pip install -r requirements.txt
+pip install -e .
+```
+
+5. **Run experiments** (this will populate `filter_state/data/`)
+```bash
+cd ../filtered_quantum_phase_estimation/filter_state
 python experiment_<name>.py
 # e.g.
 # python experiment_gaussian_filter.py
@@ -64,7 +81,7 @@ cp -r data_produced/* data/
 ```
 (Then you can go straight to plotting.)
 
-5. **Generate paper figures**
+6. **Generate paper figures**
 ```bash
 # still in filter_state/
 python plot_<name>.py
@@ -73,13 +90,13 @@ python plot_<name>.py
 
 ## Reproducibility notes
 
-- All figures in the paper can be recreated by running the `plot*.py` scripts; they read from `filter_state/data/`.
-- If you haven’t run the experiments, use the ready-made outputs in `filter_state/data_produced/` by copying them into `data/`.
+- All figures in the paper can be recreated by running the `plot*.py` scripts; they read from `filter_state/data/`.  
+- If you haven’t run the experiments, use the ready-made outputs in `filter_state/data_produced/` by copying them into `data/`.  
 - Problem instances and chemistry inputs (when applicable) are under `chemistry_data/`.
 
 ## Data availability
 
-Generated data (and pre-generated outputs) are included in this repository under `filter_state/data` and `filter_state/data_produced`.
+Generated data (and pre-generated outputs) are included in this repository under `filter_state/data` and `filter_state/data_produced`.  
 Figures created by `plot*.py` are saved into `filter_state/figures/`.
 
 ## Citation
